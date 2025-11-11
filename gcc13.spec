@@ -1,4 +1,3 @@
-%global DATE 
 %global gitrev 03b1a31f9807251f378fcecb29c4669eed357eb2
 %global gcc_version 13.3.0
 %global gcc_major 13
@@ -150,7 +149,7 @@ programs with the GNU Compiler Collection %{gcc_major}
 compatibility compiler.
 
 %prep
-%setup -q -n gcc-%{version}-%{DATE}
+%setup -q -n gcc-%{version}
 %patch -P0 -p0 -b .hack~
 %patch -P3 -p0 -b .libgomp-omp_h-multilib~
 %patch -P4 -p0 -b .libtool-no-rpath~
@@ -296,10 +295,10 @@ tar xf %{_usrsrc}/annobin/latest-annobin.tar.xz
 cd annobin*
 touch aclocal.m4 configure Makefile.in */configure */config.h.in */Makefile.in
 ANNOBIN_FLAGS=../../obj-%{gcc_target_platform}/%{gcc_target_platform}/libstdc++-v3/scripts/testsuite_flags
-ANNOBIN_CFLAGS1="%build_cflags -I %{_builddir}/gcc-%{version}-%{DATE}/gcc"
-ANNOBIN_CFLAGS1="$ANNOBIN_CFLAGS1 -I %{_builddir}/gcc-%{version}-%{DATE}/obj-%{gcc_target_platform}/gcc"
-ANNOBIN_CFLAGS2="-I %{_builddir}/gcc-%{version}-%{DATE}/include -I %{_builddir}/gcc-%{version}-%{DATE}/libcpp/include"
-ANNOBIN_LDFLAGS="%build_ldflags -L%{_builddir}/gcc-%{version}-%{DATE}/obj-%{gcc_target_platform}/%{gcc_target_platform}/libstdc++-v3/src/.libs"
+ANNOBIN_CFLAGS1="%build_cflags -I %{_builddir}/gcc-%{version}/gcc"
+ANNOBIN_CFLAGS1="$ANNOBIN_CFLAGS1 -I %{_builddir}/gcc-%{version}/obj-%{gcc_target_platform}/gcc"
+ANNOBIN_CFLAGS2="-I %{_builddir}/gcc-%{version}/include -I %{_builddir}/gcc-%{version}/libcpp/include"
+ANNOBIN_LDFLAGS="%build_ldflags -L%{_builddir}/gcc-%{version}/obj-%{gcc_target_platform}/%{gcc_target_platform}/libstdc++-v3/src/.libs"
 CC="`$ANNOBIN_FLAGS --build-cc`" CXX="`$ANNOBIN_FLAGS --build-cxx`" \
   CFLAGS="$ANNOBIN_CFLAGS1 $ANNOBIN_CFLAGS2 $ANNOBIN_LDFLAGS" \
   CXXFLAGS="$ANNOBIN_CFLAGS1 `$ANNOBIN_FLAGS --build-includes` $ANNOBIN_CFLAGS2 $ANNOBIN_LDFLAGS" \
@@ -504,7 +503,7 @@ echo gcc-%{version}-%{release}.%{_arch} > $FULLPATH/rpmver
 %if %{build_annobin_plugin}
 mkdir -p $FULLPATH/plugin
 rm -f $FULLPATH/plugin/gcc-annobin*
-cp -a %{_builddir}/gcc-%{version}-%{DATE}/annobin-plugin/annobin*/gcc-plugin/.libs/annobin.so.0.0.0 \
+cp -a %{_builddir}/gcc-%{version}/annobin-plugin/annobin*/gcc-plugin/.libs/annobin.so.0.0.0 \
   $FULLPATH/plugin/gcc-annobin.so.0.0.0
 ln -sf gcc-annobin.so.0.0.0 $FULLPATH/plugin/gcc-annobin.so.0
 ln -sf gcc-annobin.so.0.0.0 $FULLPATH/plugin/gcc-annobin.so
