@@ -150,12 +150,12 @@ compatibility compiler.
 
 %prep
 %setup -q -n gcc-%{version}
-%patch -P0 -p0 -b .hack~
-%patch -P3 -p0 -b .libgomp-omp_h-multilib~
-%patch -P4 -p0 -b .libtool-no-rpath~
-%patch -P8 -p0 -b .no-add-needed~
-%patch -P9 -p0 -b .Wno-format-security~
-%patch -P10 -p0 -b .rh1574936~
+#%patch -P0 -p0 -b .hack~
+#%patch -P3 -p0 -b .libgomp-omp_h-multilib~
+#%patch -P4 -p0 -b .libtool-no-rpath~
+#%patch -P8 -p0 -b .no-add-needed~
+#%patch -P9 -p0 -b .Wno-format-security~
+#%patch -P10 -p0 -b .rh1574936~
 
 echo 'Red Hat %{version}-%{gcc_release}' > gcc/DEV-PHASE
 
