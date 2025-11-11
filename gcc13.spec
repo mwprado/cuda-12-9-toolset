@@ -106,12 +106,12 @@ Provides: bundled(libiberty)
 Provides: bundled(libbacktrace)
 Provides: bundled(libffi)
 
-Patch0: gcc13-hack.patch
-Patch3: gcc13-libgomp-omp_h-multilib.patch
-Patch4: gcc13-libtool-no-rpath.patch
-Patch8: gcc13-no-add-needed.patch
-Patch9: gcc13-Wno-format-security.patch
-Patch10: gcc13-rh1574936.patch
+#Patch0: gcc13-hack.patch
+#Patch3: gcc13-libgomp-omp_h-multilib.patch
+#Patch4: gcc13-libtool-no-rpath.patch
+#Patch8: gcc13-no-add-needed.patch
+#Patch9: gcc13-Wno-format-security.patch
+#Patch10: gcc13-rh1574936.patch
 
 %global _gnu %{nil}
 %global gcc_target_platform %{_target_platform}
