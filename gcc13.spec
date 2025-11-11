@@ -1,6 +1,6 @@
-%global DATE 20240611
+%global DATE 
 %global gitrev 03b1a31f9807251f378fcecb29c4669eed357eb2
-%global gcc_version 13.3.1
+%global gcc_version 13.3.0
 %global gcc_major 13
 # Note, gcc_release must be integer, if you want to add suffixes to
 # %%{release}, append them after %%{gcc_release} on Release: line.
@@ -50,7 +50,7 @@ License: GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-e
 # git --git-dir=gcc-dir.tmp/.git fetch --depth 1 origin %%{gitrev}
 # git --git-dir=gcc-dir.tmp/.git archive --prefix=%%{name}-%%{version}-%%{DATE}/ %%{gitrev} | xz -9e > %%{name}-%%{version}-%%{DATE}.tar.xz
 # rm -rf gcc-dir.tmp
-Source0: gcc-%{version}-%{DATE}.tar.xz
+Source0: https://gnu.mirror.constant.com/gcc/gcc-13.3.0/gcc-%{version}.tar.xz 
 Source1: dummylib.sh
 URL: http://gcc.gnu.org
 BuildRequires: binutils >= 2.31
