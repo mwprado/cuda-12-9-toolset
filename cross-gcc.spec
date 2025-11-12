@@ -4,7 +4,7 @@
 %global cross cross
 %global rpmprefix %{nil}
 
-%global build_all		1
+%global build_all		0
 %global build_aarch64		%{build_all}
 %global build_alpha		%{build_all}
 %global build_arm		%{build_all}
@@ -33,7 +33,7 @@
 %global build_s390x		%{build_all}
 %global build_sh		%{build_all}
 %global build_sparc64		%{build_all}
-%global build_x86_64		%{build_all}
+%global build_x86_64		1
 %global build_xtensa		%{build_all}
 
 # built compiler generates lots of ICEs
